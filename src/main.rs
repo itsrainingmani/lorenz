@@ -56,7 +56,7 @@ fn model(app: &App) -> Model {
         x: 0.01,
         y: 0.0,
         z: 0.0,
-        points: VecDeque::new(),
+        points: VecDeque::with_capacity(5000),
         hue: 0.0,
         egui,
         settings: Settings {
@@ -135,10 +135,9 @@ fn view(app: &App, model: &Model, frame: Frame) {
 
     for (pt, hue) in &model.points {
         draw.ellipse()
-            .color(STEELBLUE)
             .radius(0.2)
             .x_y_z(pt.x, pt.y, pt.z)
-            .hsv(deg_to_rad(*hue), 1.0, 0.3);
+            .hsv(deg_to_rad(*hue), 0.6, 0.6);
     }
 
     draw.to_frame(app, &frame).unwrap();
