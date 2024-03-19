@@ -70,7 +70,7 @@ fn model(app: &App) -> Model {
 fn key_pressed(_app: &App, model: &mut Model, key: Key) {
     match key {
         Key::Plus | Key::Equals => model.settings.scale += 0.1,
-        Key::Minus => model.settings.scale -= 0.1,
+        Key::Minus | Key::Underline => model.settings.scale -= 0.1,
         Key::Up => model.angles.pitch += 0.01,
         Key::Down => model.angles.pitch -= 0.01,
         Key::Left => model.angles.yaw += 0.01,
